@@ -11,8 +11,8 @@ Console.WriteLine("Press any key to start...");
 Console.WriteLine("Proccessor Id : {0}", Process.GetCurrentProcess().Id);
 
 Console.ReadLine();
-//await CopyFilesAsync();
-await StreamCopyFilesAsync();
+await CopyFilesAsync();
+//await StreamCopyFilesAsync();
 Console.ReadLine();
 Console.WriteLine("Done");
 
@@ -50,13 +50,13 @@ static async Task StreamCopyFilesAsync()
 
 static async Task CopyFilesAsync()
 {
-    var files = System.IO.Directory.GetFiles(@"E:\Projects\Data\faces");
+    var files = System.IO.Directory.GetFiles(@"G:\Projects\Data\Fake-Faces");
     var c = 0;
     foreach (var file in files)
     {
         Console.WriteLine(file);
         var data = await File.ReadAllBytesAsync(file);
-        await File.WriteAllBytesAsync(@"E:\Projects\Data\faces2\" + c + ".jpg", data);
+        await File.WriteAllBytesAsync(@"G:\Projects\Data\Fake-Faces2\" + c + ".jpg", data);
         c++;
     }
 }
